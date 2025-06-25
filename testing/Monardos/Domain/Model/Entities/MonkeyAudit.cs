@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using EntityFrameworkCore.CreatedUpdatedDate.Contracts;
 
-namespace testing.Monardos.Domain.Model.Aggregates;
+namespace testing.Monardos.Domain.Model.Entities;
 
 public partial class Monkey : IEntityWithCreatedUpdatedDate
 {

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using testing.Owners.Domain.Model.Aggregates;
+using testing.Owners.Domain.Model.Entities;
 
 namespace testing.Owners.Infrastructure.Persistence.EF.Configuration.Extensions;
 

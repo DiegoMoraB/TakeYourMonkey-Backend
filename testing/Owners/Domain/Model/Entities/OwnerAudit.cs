@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using EntityFrameworkCore.CreatedUpdatedDate.Contracts;
 
-namespace testing.Owners.Domain.Model.Aggregates;
+namespace testing.Owners.Domain.Model.Entities;
 
 public partial class Owner : IEntityWithCreatedUpdatedDate
 {

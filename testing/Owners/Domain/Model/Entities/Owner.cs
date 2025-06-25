@@ -1,6 +1,6 @@
 using testing.Owners.Domain.Model.ValueObjects;
 
-namespace testing.Owners.Domain.Model.Aggregates;
+namespace testing.Owners.Domain.Model.Entities;
 
 public partial class Owner
 {
