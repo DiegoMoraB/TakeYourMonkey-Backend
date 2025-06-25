@@ -1,7 +1,6 @@
 using testing.Monardos.Domain.Model.Commands;
-using testing.Monardos.Domain.Model.ValueObjects;
 
-namespace testing.Monardos.Domain.Model.Aggregates;
+namespace testing.Monardos.Domain.Model.Entities;
 
 public partial class Monkey
 {
@@ -14,5 +13,9 @@ public partial class Monkey
     public string Name { get; private set; }
     public int TypeOfMonkeyId { get; private set; }
     public TypeOfMonkey? TypeOfMonkey { get; private set; }
-
+    public Monkey()
+    {
+        Name = string.Empty;
+        TypeOfMonkeyId = default(int);
+    }
 }

@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using testing.Monardos.Domain.Model.Aggregates;
+using testing.Monardos.Domain.Model.Entities;
 using testing.Monardos.Domain.Repositories;
 using testing.Shared.Infrastructure.Persistence.EF.Configuration;
 using testing.Shared.Infrastructure.Persistence.EF.Repositories;
 
-namespace testing.Monardos.Infrastructure.Repositories;
+namespace testing.Monardos.Infrastructure.Persistence.EF.Repositories;
 
 public class MonkeyRepository : BaseRepository<Monkey>,IMonkeyRepository
 {

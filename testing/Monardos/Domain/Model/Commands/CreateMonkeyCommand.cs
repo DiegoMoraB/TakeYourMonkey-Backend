@@ -1,4 +1,3 @@
-using testing.Monardos.Domain.Model.ValueObjects;
 
 namespace testing.Monardos.Domain.Model.Commands;
 

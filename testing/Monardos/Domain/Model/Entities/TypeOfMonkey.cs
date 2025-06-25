@@ -1,5 +1,5 @@
 
-namespace testing.Monardos.Domain.Model.Aggregates;
+namespace testing.Monardos.Domain.Model.Entities;
 public partial class TypeOfMonkey
 {
     public int Id  { get; private set; }

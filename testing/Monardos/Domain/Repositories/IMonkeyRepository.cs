@@ -1,4 +1,4 @@
-using testing.Monardos.Domain.Model.Aggregates;
+using testing.Monardos.Domain.Model.Entities;
 using testing.Shared.Domain.Repositories;
 
 namespace testing.Monardos.Domain.Repositories;

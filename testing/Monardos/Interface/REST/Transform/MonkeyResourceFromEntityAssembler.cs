@@ -1,4 +1,4 @@
-using testing.Monardos.Domain.Model.Aggregates;
+using testing.Monardos.Domain.Model.Entities;
 using testing.Monardos.Interface.REST.Resources;
 
 namespace testing.Monardos.Interface.REST.Transform;
