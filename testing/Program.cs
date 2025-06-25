@@ -1,3 +1,5 @@
+using Cortex.Mediator.Commands;
+using Cortex.Mediator.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using testing.Monardos.Application.ACL;
@@ -8,6 +10,7 @@ using testing.Monardos.Domain.Services;
 using testing.Monardos.Infrastructure.Persistence.EF.Repositories;
 using testing.Monardos.Interface.ACL;
 using testing.Shared.Domain.Repositories;
+using testing.Shared.Infrastructure.Mediator.Cortex.Configuration;
 using testing.Shared.Infrastructure.Persistence.EF.Configuration;
 using testing.Shared.Infrastructure.Persistence.EF.Repositories;
 
@@ -48,6 +51,17 @@ builder.Services.AddScoped<IMonkeyQueryService, MonkeyQueryService>();
 builder.Services.AddScoped<IMonkeyCommandService, MonkeyCommandService>();
 
 builder.Services.AddScoped<IMonkeyContextFacade, MonkeyContextFacade>();
+
+builder.Services.AddScoped(typeof(ICommandPipelineBehavior<>), typeof(LoggingCommandBehavior<>));
+
+builder.Services.AddCortexMediator(
+    configuration: builder.Configuration,
+    handlerAssemblyMarkerTypes: new[] {typeof(Program)},
+    configure : options =>
+    {
+        options.AddOpenCommandPipelineBehavior(typeof(LoggingCommandBehavior<>));
+    }
+    );
 
 var app = builder.Build();
 

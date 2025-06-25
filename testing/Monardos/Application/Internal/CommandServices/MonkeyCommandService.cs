@@ -1,5 +1,7 @@
+using Cortex.Mediator;
 using testing.Monardos.Domain.Model.Entities;
 using testing.Monardos.Domain.Model.Commands;
+using testing.Monardos.Domain.Model.Events;
 using testing.Monardos.Domain.Repositories;
 using testing.Monardos.Domain.Services;
 using testing.Shared.Domain.Repositories;
@@ -10,10 +12,12 @@ public class MonkeyCommandService : IMonkeyCommandService
 {
     IMonkeyRepository repository;
     IUnitOfWork unitOfWork;
-    public MonkeyCommandService(IMonkeyRepository repository,IUnitOfWork unitOfWork)
+    IMediator domainEventPublisher;
+    public MonkeyCommandService(IMonkeyRepository repository,IUnitOfWork unitOfWork, IMediator domainEventPublisher)
     {
         this.repository = repository;
         this.unitOfWork = unitOfWork;
+        this.domainEventPublisher = domainEventPublisher;
     }
     
     public async Task<Monkey?> Handle(CreateMonkeyCommand command)
@@ -26,6 +30,7 @@ public class MonkeyCommandService : IMonkeyCommandService
        {
            await repository.AddAsync(monkey);
            await unitOfWork.CompleteAsync();
+           await domainEventPublisher.PublishAsync(new MonkeyCreatedEvent(monkey.Name));
        }
        catch (Exception ex)
        {
