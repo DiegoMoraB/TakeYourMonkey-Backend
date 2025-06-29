@@ -4579,25 +4579,24 @@
     ]
   },
   "packageFolders": {
-    "/Users/diegomora/.nuget/packages/": {}
+    "C:\\Users\\jackw\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/diegomora/Desktop/PERSONAL PROJECTS/cqrsandaudit/testing/testing.csproj",
+      "projectUniqueName": "E:\\PROYECTOS\\.NET\\TakeYourMonkey-Backend\\testing\\testing.csproj",
       "projectName": "testing",
-      "projectPath": "/Users/diegomora/Desktop/PERSONAL PROJECTS/cqrsandaudit/testing/testing.csproj",
-      "packagesPath": "/Users/diegomora/.nuget/packages/",
-      "outputPath": "/Users/diegomora/Desktop/PERSONAL PROJECTS/cqrsandaudit/testing/obj/",
+      "projectPath": "E:\\PROYECTOS\\.NET\\TakeYourMonkey-Backend\\testing\\testing.csproj",
+      "packagesPath": "C:\\Users\\jackw\\.nuget\\packages\\",
+      "outputPath": "E:\\PROYECTOS\\.NET\\TakeYourMonkey-Backend\\testing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/diegomora/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\jackw\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "/opt/homebrew/Cellar/dotnet/9.0.5/libexec/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4616,7 +4615,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -4674,7 +4673,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/9.0.5/libexec/sdk/9.0.106/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\jackw\\.dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
