@@ -18,4 +18,14 @@ public class UserQueryService : IUserQueryService
     {
         return await repository.FindByIdAsync(query.id);
     }
+
+    public Task<IEnumerable<User>> Handle(GetAllUsersQuery query)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<User?> Handle(GetUserByUsernameQuery query)
+    {
+        throw new NotImplementedException();
+    }
 }

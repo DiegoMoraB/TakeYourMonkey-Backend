@@ -1,5 +1,6 @@
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
+using testing.IAM.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using testing.Monardos.Infrastructure.Persistence.EF.Configuration.Extensions;
 using testing.Owners.Infrastructure.Persistence.EF.Configuration.Extensions;
 
@@ -21,6 +22,7 @@ public class TakeYourMonkeyDbContext : DbContext
     
         builder.ApplyOwnersConfiguration();
         builder.ApplyMonkeysConfiguration();
+        builder.ApplyIamConfiguration();
     }
     
 }

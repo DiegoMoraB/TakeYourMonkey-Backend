@@ -2,6 +2,16 @@ using Cortex.Mediator.Commands;
 using Cortex.Mediator.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using testing.IAM.Application.Internal.CommandServices;
+using testing.IAM.Application.Internal.OutboundServices;
+using testing.IAM.Application.Internal.QueryServices;
+using testing.IAM.Domain.Repositories;
+using testing.IAM.Domain.Services;
+using testing.IAM.Infrastructure.Hashing.BCrypt.Services;
+using testing.IAM.Infrastructure.Persistence.EFC.Repositories;
+using testing.IAM.Infrastructure.Pipeline.Middleware.Extensions;
+using testing.IAM.Infrastructure.Token.JWT.Configuration;
+using testing.IAM.Infrastructure.Token.JWT.Services;
 using testing.Monardos.Application.ACL;
 using testing.Monardos.Application.Internal.CommandServices;
 using testing.Monardos.Application.Internal.QueryServices;
@@ -54,6 +64,16 @@ builder.Services.AddScoped<IMonkeyContextFacade, MonkeyContextFacade>();
 
 builder.Services.AddScoped(typeof(ICommandPipelineBehavior<>), typeof(LoggingCommandBehavior<>));
 
+builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));// Es para que se inyecte como IOptions<TokenSettings> en TokenService
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserQueryService,UserQueryService>();
+builder.Services.AddScoped<IUserCommandService, UserCommandService>();
+
+builder.Services.AddScoped<IHashingService, HashingService>();
+builder.Services.AddScoped<ITokenService,TokenService>();
+
+
 builder.Services.AddCortexMediator(
     configuration: builder.Configuration,
     handlerAssemblyMarkerTypes: new[] {typeof(Program)},
@@ -78,6 +98,8 @@ using (var scope = app.Services.CreateScope())
     context.Database.EnsureCreated();
 }
 app.UseHttpsRedirection();
+app.UseRequestAuthorizationMiddleware();
+
 app.MapControllers();
 
 app.Run();
