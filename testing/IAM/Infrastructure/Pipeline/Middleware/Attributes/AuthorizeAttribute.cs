@@ -35,6 +35,7 @@ Rutas, filtros, etc.
         
         //HttpContext.Items : Es un diccionario temporal (clave-valor) que existe durante una única solicitud HTTP.
         //Se usa para compartir datos entre middlewares, filtros y controladores, sin afectar la sesión ni el usuario global.
+        //Entonces problablemente el middleware esta guardando "User" en el diccionario
         
         if (user == null) context.Result = new UnauthorizedResult();
         

@@ -1,6 +1,6 @@
 namespace testing.IAM.Infrastructure.Pipeline.Middleware.Components;
 
-public class RequestAuthorizationMiddleware
+public class RequestAuthorizationMiddleware(RequestDelegate next)
 {
     
 }
