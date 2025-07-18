@@ -18,7 +18,7 @@ public class MonkeyRepository : BaseRepository<Monkey>,IMonkeyRepository
     public async Task<Monkey?> FindByNameAsync(string name)
     {
         return await context.Set<Monkey>().Include(x => x.TypeOfMonkey)
-            .FirstOrDefaultAsync(x => x.Name == name); 
+            .FirstOrDefaultAsync(x => x.Name.Value == name); 
     }
     
 }

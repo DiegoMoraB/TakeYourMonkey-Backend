@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using testing.Monardos.Domain.Model.Aggregates;
 using testing.Monardos.Domain.Model.Entities;
 
 namespace testing.Monardos.Infrastructure.Persistence.EF.Configuration.Extensions;
@@ -25,7 +26,11 @@ public static class ModelBuilderExtension
         
         builder.Entity<Monkey>().HasKey(x => x.Id);
         builder.Entity<Monkey>().Property(x => x.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<Monkey>().Property(x => x.Name).IsRequired().HasMaxLength(16);
+        builder.Entity<Monkey>().OwnsOne(x => x.Name, n =>
+        {
+            n.WithOwner().HasForeignKey("Id");
+            n.Property(a => a.Value).IsRequired();
+        });
         builder.Entity<Monkey>().HasOne(x => x.TypeOfMonkey)
             .WithMany(n => n.Monkeys)
             .HasForeignKey(x => x.TypeOfMonkeyId)

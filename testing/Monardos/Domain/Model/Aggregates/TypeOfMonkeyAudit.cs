@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using EntityFrameworkCore.CreatedUpdatedDate.Contracts;
 
-namespace testing.Owners.Domain.Model.Entities;
+namespace testing.Monardos.Domain.Model.Aggregates;
 
-public partial class Owner : IEntityWithCreatedUpdatedDate
+public partial class TypeOfMonkey : IEntityWithCreatedUpdatedDate
 {
     [Column("created_at")]
     public DateTimeOffset? CreatedDate { get; set; }

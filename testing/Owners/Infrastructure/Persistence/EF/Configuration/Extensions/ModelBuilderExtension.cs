@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using testing.Owners.Domain.Model.Entities;
+using testing.Owners.Domain.Model.Aggregates;
 
 namespace testing.Owners.Infrastructure.Persistence.EF.Configuration.Extensions;
 
@@ -13,7 +13,7 @@ public static class ModelBuilderExtension
         {
             n.WithOwner().HasForeignKey("Id");
             
-            n.Property(u => u.username).IsRequired().HasMaxLength(16);
+            n.Property(u => u.Value).IsRequired().HasMaxLength(16);
         });
     }
 }

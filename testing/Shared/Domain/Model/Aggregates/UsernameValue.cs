@@ -1,17 +1,22 @@
 using System.Text.RegularExpressions;
 
-namespace testing.Owners.Domain.Model.ValueObjects;
+namespace testing.Shared.Domain.Model.Aggregates;
 
-public record UsernameValue(string username)
+public record UsernameValue
 {
+    public string Value { get; init; }
     private static readonly Regex _pattern = new(@"^[A-Za-z0-9_]{3,16}$");
-    public static UsernameValue Create(string username)
+    public UsernameValue(string username)
     {
-        
         if (!_pattern.IsMatch(username))
         {
             throw new Exception($"Username '{username}' is not valid.");
         }
-        return new UsernameValue(username);
+        Value = username;
+    }
+
+    public UsernameValue()
+    {
+        Value = "empty";
     }
 }

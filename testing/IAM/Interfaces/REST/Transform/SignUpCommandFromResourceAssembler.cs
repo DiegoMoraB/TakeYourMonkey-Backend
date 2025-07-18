@@ -5,8 +5,8 @@ namespace testing.IAM.Interfaces.REST.Transform;
 
 public static class SignUpCommandFromResourceAssembler
 {
-    public static SignInCommand ToCommandFromResource(SignInResource resource)
+    public static SignUpCommand ToCommandFromResource(SignUpResource resource)
     {
-        return new  SignInCommand(resource.Username, resource.Password);
+        return new  SignUpCommand(resource.Username, resource.Password);
     }
 }

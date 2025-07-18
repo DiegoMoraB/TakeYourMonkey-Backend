@@ -9,7 +9,6 @@
 
     <ItemGroup>
       <Folder Include="Monardos\Infrastructure\Persistence\EF\Configuration\" />
-      <Folder Include="Owners\Domain\Model\Aggregates\" />
       <Folder Include="Owners\Infrastructure\Persistence\EF\Configuration\" />
       <Folder Include="Shared\Infrastructure\Persistence\EF\Configuration\Extensions\" />
     </ItemGroup>
